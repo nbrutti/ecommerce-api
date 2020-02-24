@@ -2,34 +2,34 @@ import express from 'express';
 
 const router = express.Router();
 
-router.route('/produto/:id_produto')
+router.route('/pedido/:id_pedido')
     .get((req, res) => {
-        const id = req.params.id_produto
+        const id = req.params.id_pedido
         res.status(200).send({
-            mensagem: 'Você acessou a rota /produto/id com o método GET',
+            mensagem: 'Você acessou a rota /pedido/id com o método GET',
             id: id
         });
     })
     .put((req, res) => {
         res.status(200).send({
-            mensagem: 'Você acessou a rota /produto/id com o método PUT'
+            mensagem: 'Você acessou a rota /pedido/id com o método PUT'
         });
     })
     .delete((req, res) => {
         res.status(204).send({
-            mensagem: 'Você acessou a rota /produto/id com o método DELETE'
+            mensagem: 'Você acessou a rota /pedido/id com o método DELETE'
         });
     });
 
-router.route('/produtos')
+router.route('/pedidos')
     .get((req, res) => {
         res.status(200).send({
-            mensagem: 'Você acessou a rota /produtos com o método GET'
+            mensagem: 'Você acessou a rota /pedidos com o método GET'
         });
     })
     .post((req, res) => {
         res.status(201).send({
-            mensagem: 'Você acessou a rota /produtos com o método POST'
+            mensagem: 'Você acessou a rota /pedidos com o método POST'
         });
     });
 
