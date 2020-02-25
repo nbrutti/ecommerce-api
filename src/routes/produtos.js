@@ -28,8 +28,15 @@ router.route('/produtos')
         });
     })
     .post((req, res) => {
+
+        const produto = {
+            nome: req.body.nome,
+            preco: req.body.preco
+        };
+
         res.status(201).send({
-            mensagem: 'Você acessou a rota /produtos com o método POST'
+            mensagem: 'Você acessou a rota /produtos com o método POST',
+            produtoCriado: produto
         });
     });
 

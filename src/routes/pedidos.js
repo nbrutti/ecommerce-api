@@ -28,8 +28,15 @@ router.route('/pedidos')
         });
     })
     .post((req, res) => {
+
+        const pedido = {
+            id_produto: req.body.id_produto,
+            quantidade: req.body.quantidade
+        };
+
         res.status(201).send({
-            mensagem: 'Você acessou a rota /pedidos com o método POST'
+            mensagem: 'Você acessou a rota /pedidos com o método POST',
+            pedidoCriado: pedido
         });
     });
 
