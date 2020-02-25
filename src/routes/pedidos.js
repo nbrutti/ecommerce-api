@@ -1,43 +1,15 @@
 import express from 'express';
+import PedidoController from '../controllers/PedidoController';
 
 const router = express.Router();
 
 router.route('/pedido/:id_pedido')
-    .get((req, res) => {
-        const id = req.params.id_pedido
-        res.status(200).send({
-            mensagem: 'Você acessou a rota /pedido/id com o método GET',
-            id: id
-        });
-    })
-    .put((req, res) => {
-        res.status(200).send({
-            mensagem: 'Você acessou a rota /pedido/id com o método PUT'
-        });
-    })
-    .delete((req, res) => {
-        res.status(204).send({
-            mensagem: 'Você acessou a rota /pedido/id com o método DELETE'
-        });
-    });
+    .get((req, res) => PedidoController.show(req, res))
+    .put((req, res) => PedidoController.update(req, res))
+    .delete((req, res) => PedidoController.destroy(req, res));
 
 router.route('/pedidos')
-    .get((req, res) => {
-        res.status(200).send({
-            mensagem: 'Você acessou a rota /pedidos com o método GET'
-        });
-    })
-    .post((req, res) => {
-
-        const pedido = {
-            id_produto: req.body.id_produto,
-            quantidade: req.body.quantidade
-        };
-
-        res.status(201).send({
-            mensagem: 'Você acessou a rota /pedidos com o método POST',
-            pedidoCriado: pedido
-        });
-    });
+    .get((req, res) => PedidoController.index(req, res))
+    .post((req, res) => PedidoController.store(req, res));
 
 export default router;

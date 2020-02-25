@@ -4,7 +4,7 @@ class Produto extends Model {
     static init(sequelize) {
         super.init({
             nome: DataTypes.STRING,
-            preco: DataTypes.DECIMAL(10, 2)
+            preco: DataTypes.FLOAT
         }, {
             sequelize
         });

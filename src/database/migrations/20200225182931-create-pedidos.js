@@ -2,20 +2,20 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('produtos', { 
+    return queryInterface.createTable('pedidos', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
       },
-      nome: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      preco: {
+      preco_total: {
         type: Sequelize.FLOAT,
         allowNull: false
+      },
+      pagamento: {
+        type: Sequelize.ENUM,
+        values: ['CRÉDITO', 'DÉBITO']
       },
       created_at: {
         type: Sequelize.DATE,
@@ -29,6 +29,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('produtos');
+    return queryInterface.dropTable('pedidos');
   }
 };
