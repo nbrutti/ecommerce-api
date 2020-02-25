@@ -1,4 +1,5 @@
 import express from 'express';
+import ProdutoController from '../controllers/ProdutoController';
 
 const router = express.Router();
 
@@ -27,17 +28,6 @@ router.route('/produtos')
             mensagem: 'Você acessou a rota /produtos com o método GET'
         });
     })
-    .post((req, res) => {
-
-        const produto = {
-            nome: req.body.nome,
-            preco: req.body.preco
-        };
-
-        res.status(201).send({
-            mensagem: 'Você acessou a rota /produtos com o método POST',
-            produtoCriado: produto
-        });
-    });
+    .post((req, res) => ProdutoController.store(req, res));
 
 export default router;
