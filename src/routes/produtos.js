@@ -4,30 +4,12 @@ import ProdutoController from '../controllers/ProdutoController';
 const router = express.Router();
 
 router.route('/produto/:id_produto')
-    .get((req, res) => {
-        const id = req.params.id_produto
-        res.status(200).send({
-            mensagem: 'Você acessou a rota /produto/id com o método GET',
-            id: id
-        });
-    })
-    .put((req, res) => {
-        res.status(200).send({
-            mensagem: 'Você acessou a rota /produto/id com o método PUT'
-        });
-    })
-    .delete((req, res) => {
-        res.status(204).send({
-            mensagem: 'Você acessou a rota /produto/id com o método DELETE'
-        });
-    });
+    .get((req, res) => ProdutoController.show(req, res))
+    .put((req, res) => ProdutoController.update(req, res))
+    .delete((req, res) => ProdutoController.destroy(req, res));
 
 router.route('/produtos')
-    .get((req, res) => {
-        res.status(200).send({
-            mensagem: 'Você acessou a rota /produtos com o método GET'
-        });
-    })
+    .get((req, res) => ProdutoController.index(req, res))
     .post((req, res) => ProdutoController.store(req, res));
 
 export default router;
