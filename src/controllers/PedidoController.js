@@ -1,4 +1,5 @@
 import Pedido from '../models/Pedido';
+
 export default {
     async index(req, res) {
         const pedidos = await Pedido.findAll();
