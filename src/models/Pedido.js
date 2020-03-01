@@ -11,6 +11,14 @@ class Pedido extends Model {
             sequelize
         });
     }
+
+    static associate(models) {
+        this.belongsToMany(models.Produto, {
+            foreignKey: 'pedido_id',
+            through: 'itens_pedidos',
+            as: 'itens'
+        });
+    }
 }
 
 export default Pedido;

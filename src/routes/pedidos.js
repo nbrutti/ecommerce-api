@@ -1,15 +1,20 @@
 import express from 'express';
 import PedidoController from '../controllers/PedidoController';
+import ItensPedidoController from '../controllers/ItensPedidoController';
 
 const router = express.Router();
 
+router.route('/pedido/:id_pedido/submeter')
+    .get(ItensPedidoController.faturar)
+    .post(ItensPedidoController.faturar);
+
 router.route('/pedido/:id_pedido')
-    .get((req, res) => PedidoController.show(req, res))
-    .put((req, res) => PedidoController.update(req, res))
-    .delete((req, res) => PedidoController.destroy(req, res));
+    .get(PedidoController.show)
+    .put(PedidoController.update)
+    .delete(PedidoController.destroy);
 
 router.route('/pedidos')
-    .get((req, res) => PedidoController.index(req, res))
-    .post((req, res) => PedidoController.store(req, res));
+    .get(PedidoController.index)
+    .post(PedidoController.store);
 
 export default router;
