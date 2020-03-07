@@ -1,4 +1,6 @@
 import express from 'express';
+import multer from 'multer';
+import multerConfig from '../config/multer';
 import ProdutoController from '../controllers/ProdutoController';
 
 const router = express.Router();
@@ -10,6 +12,6 @@ router.route('/produto/:id_produto')
 
 router.route('/produtos')
     .get(ProdutoController.index)
-    .post(ProdutoController.store);
+    .post(multer(multerConfig).single('file'), ProdutoController.store);
 
 export default router;
