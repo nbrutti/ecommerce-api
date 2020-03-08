@@ -1,6 +1,6 @@
 # ecommerce-api
 
-Este projeto trata-se de um back-end para um simples e-Commerce. Foi desenvolvido com o intuito de exercitar e adquirir mais conhecimentos em projetos que possuem esta stack. 
+Este projeto trata-se de um back-end para um simples e-Commerce. Foi desenvolvido com o intuito de exercitar e adquirir mais conhecimentos em projetos que possuem esta stack. Ele é responsável por armazenar produtos, gravar pedidos e gerir usuários. Em breve haverá um front-end SPA :grin:.
 
 ## MER
 
