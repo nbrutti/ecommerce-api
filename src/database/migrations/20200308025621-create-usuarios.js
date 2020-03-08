@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('usuarios', {
-      id_usuario: {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -12,9 +12,18 @@ module.exports = {
       email: {
         type: Sequelize.STRING(100),
         allowNull: false,
+        unique: true
       },
       senha: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(100),
+        allowNull: false
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updated_at: {
+        type: Sequelize.DATE,
         allowNull: false
       }
     });
