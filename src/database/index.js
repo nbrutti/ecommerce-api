@@ -4,12 +4,15 @@ import dbConfig from '../config/database';
 import Produto from '../models/Produto';
 import Pedido from '../models/Pedido';
 import ItensPedido from '../models/ItensPedido';
+import Usuario from '../models/Usuario';
 
 const connection = new Sequelize(dbConfig);
 
+// Entities
 Produto.init(connection);
 Pedido.init(connection);
 ItensPedido.init(connection);
+Usuario.init(connection);
 
 // Relationships
 Produto.associate(connection.models);
