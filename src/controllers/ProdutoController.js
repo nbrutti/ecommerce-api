@@ -7,7 +7,7 @@ export default {
     },
 
     async store(req, res) {
-        const imagem = req.file.path || null;
+        const imagem = (req.file) ? req.file.path : null;
         const { nome, preco } = req.body;
         const produto = await Produto.create({ nome, preco, imagem });
         return res.json(produto);

@@ -19,6 +19,7 @@ export default {
             await connection.transaction(async t => {
 
                 for (let i = 0; i < produtos.length; i++) {
+                    console.log(produtos[i]);
                     const p = await Produto.findByPk(produtos[i].id_produto);
                     preco += produtos[i].quantidade * p.dataValues.preco;
                     ItensPedido.create({
