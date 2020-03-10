@@ -14,7 +14,7 @@ Este projeto trata-se de um back-end para um simples e-Commerce. Foi desenvolvid
 * Docker;
 * Heroku (TODO);
 * PostgreSQL;
-* Autenticação JWT (TODO);
+* Autenticação JWT;
 
 ## Execução e testes
 
@@ -41,5 +41,13 @@ $ yarn start:dev
 ```
 
 O servidor deverá estar iniciado e respondendo na porta 3000.
+
+## Endpoints
+
+[Documentação no Postman][https://documenter.getpostman.com/view/10677562/SzRyyp3Z?version=latest]
+
+Para execução local utilize o link abaixo:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/79fbd5cbf5b597f748d4)
 
 ## Materiais de estudo
