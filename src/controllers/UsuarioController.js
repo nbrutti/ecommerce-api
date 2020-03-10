@@ -27,38 +27,42 @@ export default {
             return res.status(500).json({ error: err });
         }
     },
-    async autenticar(req, res) {        
-        const usuario = await Usuario.findOne({
-            where: {
-                email: req.body.email
-            }
-        });
-        
-        if (!usuario) {
-            return res.status(401).json({ mensagem: 'Falha na autenticação' });
-        }
-
-        bcrypt.compare(req.body.senha, usuario.senha, (err, result) => {
-            if (err) {
+    async autenticar(req, res) {
+        try {     
+            const usuario = await Usuario.findOne({
+                where: {
+                    email: req.body.email
+                }
+            });
+            
+            if (!usuario) {
                 return res.status(401).json({ mensagem: 'Falha na autenticação' });
             }
 
-            if (result) {
-                const token = jwt.sign({
-                    id_usuario: usuario.id,
-                    email: usuario.email
-                },
-                'ch4v3-s3cr3t4',
-                {
-                    expiresIn: '1h'
-                });
-                return res.status(200).json({
-                    mensagem: 'Autenticado com sucesso',
-                    token: token
-                });
-            }
+            bcrypt.compare(req.body.senha, usuario.senha, (err, result) => {
+                if (err) {
+                    return res.status(401).json({ mensagem: 'Falha na autenticação' });
+                }
 
-            return res.status(401).json({ mensagem: 'Falha na autenticação' });
-        });
+                if (result) {
+                    const token = jwt.sign({
+                        id_usuario: usuario.id,
+                        email: usuario.email
+                    },
+                    'ch4v3-s3cr3t4',
+                    {
+                        expiresIn: '1h'
+                    });
+                    return res.status(200).json({
+                        mensagem: 'Autenticado com sucesso',
+                        token: token
+                    });
+                }
+
+                return res.status(401).json({ mensagem: 'Falha na autenticação' });
+            });
+        } catch (err) {
+            return res.status(500).json({ error: err.message });
+        }
     }
 }

@@ -1,20 +1,20 @@
 import express from 'express';
 import PedidoController from '../controllers/PedidoController';
 import ItensPedidoController from '../controllers/ItensPedidoController';
+import AuthRequired from '../middleware/auth';
 
 const router = express.Router();
 
 router.route('/pedido/:id_pedido/submeter')
-    .get(ItensPedidoController.faturar)
-    .post(ItensPedidoController.faturar);
+    .post(AuthRequired, ItensPedidoController.faturar);
 
 router.route('/pedido/:id_pedido')
-    .get(PedidoController.show)
-    .put(PedidoController.update)
-    .delete(PedidoController.destroy);
+    .get(AuthRequired, PedidoController.show)
+    .put(AuthRequired, PedidoController.update)
+    .delete(AuthRequired, PedidoController.destroy);
 
 router.route('/pedidos')
-    .get(PedidoController.index)
-    .post(PedidoController.store);
+    .get(AuthRequired, PedidoController.index)
+    .post(AuthRequired, PedidoController.store);
 
 export default router;
