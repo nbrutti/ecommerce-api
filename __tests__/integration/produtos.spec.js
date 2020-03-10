@@ -6,7 +6,7 @@ afterAll(() => {
     connection.close()
 });
 
-describe('Route: /produtos', () => {
+describe('Rota: /produtos', () => {
     test('GET /produtos', async () => {
         const result = await supertest(app)
             .get('/produtos');
