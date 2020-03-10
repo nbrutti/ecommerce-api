@@ -13,6 +13,7 @@ class Produto extends Model {
 
     static associate(models) {
         this.belongsToMany(models.Pedido, {
+            onDelete: 'CASCADE',
             foreignKey: 'produto_id',
             through: 'itens_pedidos',
             as: 'pedidos'
