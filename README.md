@@ -44,7 +44,7 @@ O servidor deverá estar iniciado e respondendo na porta 3000.
 
 ## Endpoints
 
-[Documentação no Postman](https://documenter.getpostman.com/view/10677562/SzRyyp3Z?version=latest)
+<a href="https://documenter.getpostman.com/view/10677562/SzRyyp3Z?version=latest" target="_blank">Documentação no Postman</a>
 
 Para execução local utilize o link abaixo:
 
