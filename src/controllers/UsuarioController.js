@@ -55,7 +55,8 @@ export default {
                     });
                     return res.status(200).json({
                         mensagem: 'Autenticado com sucesso',
-                        token: token
+                        token: token,
+                        usuario: usuario
                     });
                 }
 
