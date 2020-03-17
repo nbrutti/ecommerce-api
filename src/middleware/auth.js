@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 const AuthRequired = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        const decode = jwt.verify(token, 'ch4v3-s3cr3t4');
+        const decode = jwt.verify(token, process.env.JWT_KEY);
         req.usuario = decode;
         next();
     } catch (err) {

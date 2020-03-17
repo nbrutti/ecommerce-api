@@ -1,10 +1,13 @@
 import express from 'express';
 import routes from './routes';
 import morgan from 'morgan';
+import dotenv from 'dotenv';
 import cors from 'cors';
 import './database';
 
 const app = express();
+
+dotenv.config();
 
 app.use(cors());
 app.use(morgan('dev'));

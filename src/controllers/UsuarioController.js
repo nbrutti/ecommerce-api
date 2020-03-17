@@ -49,9 +49,9 @@ export default {
                         id_usuario: usuario.id,
                         email: usuario.email
                     },
-                    'ch4v3-s3cr3t4',
+                    process.env.JWT_KEY,
                     {
-                        expiresIn: '1h'
+                        expiresIn: process.env.JWT_TIME_TO_LIVE
                     });
                     return res.status(200).json({
                         mensagem: 'Autenticado com sucesso',
