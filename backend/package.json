@@ -8,7 +8,7 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "start": "yarn run build && node dist/server.js",
-    "start:dev": "sh init_bd.sh && nodemon --exec babel-node src/server.js",
+    "start:dev": "yarn sequelize db:drop && yarn sequelize db:create && yarn sequelize db:migrate && yarn sequelize db:seed:all && nodemon --exec babel-node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:watch": "jest --env=jsdom --watch --detectOpenHandles",
     "test:coverage": "jest --env=jsdom --coverage",
@@ -21,7 +21,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
+    "@babel/cli": "^7.8.4",     
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
@@ -29,7 +29,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "dependencies": {
-    "bcrypt": "3.0.6",
+    "bcrypt": "^4.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
