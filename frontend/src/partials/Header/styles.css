@@ -1,0 +1,39 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 100%;
+  background: #FFFFFF;
+}
+
+.app-header nav ul {
+  list-style: none;
+}
+
+.app-header nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.app-header nav ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.app-header nav ul li a:after {
+  display: block;
+  content: '';
+  border-bottom: solid 2px #191970;  
+  transform: scaleX(0); 
+  transition: transform 250ms ease-in-out;
+}
+
+.app-header nav ul li a:hover:after {
+  transform: scaleX(1);
+}
+
+.logo h2 svg {
+  padding-top: 5px;
+  margin-right: 5px;
+}

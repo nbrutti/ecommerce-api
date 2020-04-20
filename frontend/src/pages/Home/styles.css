@@ -1,0 +1,52 @@
+.banner {
+  width: 100%;
+  height: 240px;
+  background: rgb(53,47,143);
+  background: linear-gradient(80deg, rgba(53,47,143,1) 0%, rgba(25,25,112,1) 0%, rgba(48,48,150,1) 100%);
+  color: #FFFFFF;
+  padding: 20px;
+}
+
+.banner .content {
+  margin-top: 50px;
+}
+
+.banner .content p {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.banner h1 {
+  font-size: 2em;
+}
+
+.banner button {
+  margin: 10px 5px 10px 0px;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.entrar {
+  color: #FFFFFF;
+  background: rgb(34, 124, 57);
+}
+
+.cadastrar {
+  color: #000000;
+  background: #FFFFFF;
+}
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    height: 280px;
+  }
+}
+
+.content-produtos {
+  padding: 20px;
+}
