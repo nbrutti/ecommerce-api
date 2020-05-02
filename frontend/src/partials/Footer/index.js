@@ -1,6 +1,6 @@
-import React from 'react';
-import { FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi';
-import './styles.css';
+import React from "react";
+import { FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
+import "./styles.css";
 
 function Footer() {
   return (

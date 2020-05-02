@@ -49,23 +49,50 @@ button {
 
 .content-produtos {
   width: 100%;
+  min-height: 380px;
   padding: 20px;
 }
 
 /*---- CARD ----*/
 .card {
+  position: relative;
   margin: 1rem;
-  width: 300px;
-  height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   background: #FFFFFF;
   background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: 0.3s;
+  white-space: pre-wrap;      /* CSS3 */   
+  white-space: -moz-pre-wrap; /* Firefox */    
+  white-space: -pre-wrap;     /* Opera <7 */   
+  white-space: -o-pre-wrap;   /* Opera  7 */    
+  word-wrap: break-word;      /* IE */
 }
 
+.card .card-image > img {
+  width: 100%;
+  height: 250px;
+}
+
+.card .container {
+  margin: 0px 5px;
+  display: block;
+  min-height: 40px;
+}
+
+.card .container p {
+  font-size: smaller;
+  margin-top: 3px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 .cards {
   display: flex;

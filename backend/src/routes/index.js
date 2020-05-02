@@ -1,10 +1,5 @@
-import express from 'express';
-import produtosRoute from './produtos';
-import pedidosRoute from './pedidos';
-import usuariosRoute from './usuarios';
+import pedidosRoute from "./pedidos";
+import produtosRoute from "./produtos";
+import usuariosRoute from "./usuarios";
 
-export default [
-    produtosRoute,
-    pedidosRoute,
-    usuariosRoute
-];
+export default [produtosRoute, pedidosRoute, usuariosRoute];

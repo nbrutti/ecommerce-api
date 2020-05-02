@@ -1,44 +1,44 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('itens_pedidos', { 
+    return queryInterface.createTable("itens_pedidos", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
       pedido_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'pedidos', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        references: { model: "pedidos", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       produto_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'produtos', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        references: { model: "produtos", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       quantidade: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('itens_pedidos');
-  }
+    return queryInterface.dropTable("itens_pedidos");
+  },
 };

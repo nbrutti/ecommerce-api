@@ -1,16 +1,22 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert('pedidos', [{
-        preco_total: 479.8,
-        pagamento: 'CRÉDITO',
-        created_at: new Date(),
-        updated_at: new Date()
-      }], {});
+    return queryInterface.bulkInsert(
+      "pedidos",
+      [
+        {
+          preco_total: 479.8,
+          pagamento: "CRÉDITO",
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('pedidos', null, {});
-  }
+    return queryInterface.bulkDelete("pedidos", null, {});
+  },
 };

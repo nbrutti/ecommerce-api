@@ -1,25 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { FiLogIn, FiPlus } from 'react-icons/fi';
-import Footer from '../../partials/Footer';
-import Header from '../../partials/Header';
-import api from '../../services/api';
-import './styles.css';
+import React, { useEffect, useState } from "react";
+import { FiLogIn, FiPlus } from "react-icons/fi";
+import Footer from "../../partials/Footer";
+import Header from "../../partials/Header";
+import api from "../../services/api";
+import "./styles.css";
 
 function Home() {
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
-    api.get('produtos').then(response => {
+    api.get("produtos").then((response) => {
       setProdutos(response.data);
-    }).catch(err => {
+    }).catch((err) => {
       console.log(`Não foi possível recuperar os produtos. Erro: ${err}`);
     });
   }, []);
 
+  function hasImg(path) {
+    return (path != undefined);
+  }
+
+  function convertImagePath(path) {
+    if (!hasImg(path)) return 'sample.png';
+    return path.split("uploads\\")[1];
+  }
+
   return (
     <div>
       <Header />
-      
+
       <section className="banner">
         <div className="content">
           <h1>Cadastre seus produtos agora mesmo!</h1>
@@ -39,17 +48,25 @@ function Home() {
       </section>
 
       <div className="content-produtos">
-        <h1>Produtos disponíveis:</h1>
+        <h3>Produtos disponíveis:</h3>
 
         <div className="cards">
-          {produtos.map(produto =>
+          {produtos.map((produto) => (
             <div key={produto.id} className="card">
+              <div class="card-image">
+                <img
+                  src={
+                    "http://localhost:5000/uploads/" +
+                    convertImagePath(produto.imagem)
+                  }
+                />
+              </div>
               <div className="container">
-                <p>Produto: {produto.nome}</p>
-                <p>Preço: {produto.preco}</p>
+                <h5><b>{produto.nome}</b></h5>
+                <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</p>
               </div>
             </div>
-          )}
+          ))}
         </div>
       </div>
 

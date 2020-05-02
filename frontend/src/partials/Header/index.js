@@ -1,6 +1,6 @@
-import React from 'react';
-import { FiShoppingCart } from 'react-icons/fi';
-import './styles.css';
+import React from "react";
+import { FiShoppingCart } from "react-icons/fi";
+import "./styles.css";
 
 export default function Header() {
   return (
@@ -15,7 +15,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <a href="/home">Entrar</a>
+            <a href="/home">Home</a>
           </li>
           <li>
             <a href="/produtos">Produtos</a>
