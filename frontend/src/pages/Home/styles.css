@@ -20,11 +20,12 @@
   font-size: 2em;
 }
 
-.banner button {
+.banner .button {
   margin: 10px 5px 10px 0px;
 }
 
-button {
+.button {
+  text-decoration: none;
   outline: 0;
   border: 0;
   border-radius: 5px;
@@ -49,7 +50,7 @@ button {
 
 .content-produtos {
   width: 100%;
-  min-height: 380px;
+  min-height: 600px;
   padding: 20px;
 }
 

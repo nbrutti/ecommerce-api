@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { FiLogIn, FiPlus } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import Footer from "../../partials/Footer";
 import Header from "../../partials/Header";
-import api from "../../services/api";
+import ProdutoService from '../../services/produto-service';
 import "./styles.css";
 
 function Home() {
+  const service = new ProdutoService();
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
-    api.get("produtos").then((response) => {
+    service.get().then((response) => {
       setProdutos(response.data);
     }).catch((err) => {
       console.log(`Não foi possível recuperar os produtos. Erro: ${err}`);
@@ -36,14 +38,14 @@ function Home() {
             Faça seu cadastro e anuncie gratuitamente seus produtos para todos
             os membros do site.
           </p>
-          <button className="cadastrar">
+          <Link className="button cadastrar" to='/register'>
             <FiPlus size={18} />
             Cadastrar-se
-          </button>
-          <button className="entrar">
+          </Link>
+          <Link className="button entrar" to='/login'>
             <FiLogIn size={18} />
             Já tenho cadastro
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -53,7 +55,7 @@ function Home() {
         <div className="cards">
           {produtos.map((produto) => (
             <div key={produto.id} className="card">
-              <div class="card-image">
+              <div className="card-image">
                 <img
                   src={
                     "http://localhost:5000/uploads/" +

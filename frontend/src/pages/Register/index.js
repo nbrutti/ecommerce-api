@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
-import { FiShoppingCart } from "react-icons/fi";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Context } from '../../context/AuthContext';
 import "./styles.css";
 
 
-function Login() {
-  const { handleLogin } = useContext(Context);
+function Register() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -25,21 +22,19 @@ function Login() {
       return;
     }
 
-    return handleLogin(usuario).then(() => {
-      history.push('/');
-    }).catch(() => {
-      window.location.reload();
-    });
+    // usuarioService.cadastrar(usuario).then(() => {
+    //   history.push('/');
+    // }).catch(() => {
+    //   window.location.reload(); 
+    // });
   }
 
   return (
-    <div className="container-login">
+    <div className="container-register">
       <div className="box-form">
-        <div className="logo">
-          <h1>
-            <FiShoppingCart size={32} />
-            Loja Virtual
-          </h1>
+        <div className="description">
+          <h2>Registrar-se</h2>
+          <h4>Preencha suas informações pessoais abaixo:</h4>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="input-email">
@@ -64,7 +59,7 @@ function Login() {
           </div>
 
           <button className="button submit" type="submit">
-            Entrar
+            Cadastrar
           </button>
 
           <Link className="button back" to="/">
@@ -76,4 +71,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

@@ -1,13 +1,14 @@
-.footer-container {
-  text-align: center;
+body {
   position: relative;
+}
+
+.footer-container {
+  position: absolute;
+  text-align: center;
   width: 100%;
-  max-height: 80px;
-  min-height: 50px;
   padding: 20px;
   background: #CCCCCC;
-  bottom: 0;
-  left: 0;
+  bottom: 10;
 }
 
 .footer-container p {

@@ -37,3 +37,8 @@
   padding-top: 5px;
   margin-right: 5px;
 }
+
+.logo-header-button {
+  color: inherit;
+  text-decoration: none;
+}
